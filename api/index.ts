@@ -17,8 +17,15 @@ const io = new Server(server, {
 
 const meetings = new Map();
 
-// Enable CORS for Express
-app.use(cors());
+// Define allowed domain
+const allowedDomain = 'https://gmeet-clone-eight.vercel.app';
+
+// Enable CORS for the specific domain
+app.use(cors({
+  origin: allowedDomain,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the allowed methods
+  credentials: true, // Include credentials (e.g., cookies) if necessary
+}));
 
 // Basic route
 app.get("/", (req, res) => {
