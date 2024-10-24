@@ -7,18 +7,20 @@ const cors = require("cors");
 const app = express();
 const server = createServer(app);
 
+// Define allowed domain
+const allowedDomain = 'https://gmeet-clone-eight.vercel.app';
+
 // Configure Socket.IO with CORS settings
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: allowedDomain,
     methods: ["GET", "POST"],
+     credentials: true,
   },
 });
 
 const meetings = new Map();
 
-// Define allowed domain
-const allowedDomain = 'https://gmeet-clone-eight.vercel.app';
 
 // Enable CORS for the specific domain
 app.use(cors({
