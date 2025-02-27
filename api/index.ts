@@ -8,7 +8,7 @@ const app = express();
 const server = createServer(app);
 
 // Define allowed domain
-const allowedDomain = 'https://gmeet-clone-eight.vercel.app';
+const allowedDomain = 'https://connectmeet.vercel.app';
 
 // Configure Socket.IO with CORS settings
 const io = new Server(server, {
